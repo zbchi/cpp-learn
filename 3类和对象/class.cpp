@@ -1,18 +1,34 @@
 #include <iostream>
 using namespace std;
 
-class Maker // 类
+class Maker // 1.把属性和方法放到类中，赋予权限
 {
+private:
+    int id;
+    string name;
+
 public:
-    int a;      // 成员属性(成员变量)
-    void func() // 成员方法(成员函数)
+    void set(string Name, int Id)
     {
-        cout << "func" << endl;
+        id = Id;
+        name = Name;
     }
+    void printMaker()
+    {
+        cout << "id=" << id << "name=" << name << endl;
+    }
+
+protected:
+    int a;
 };
 
+void test()
+{
+    Maker m;
+    m.set("sb", 1);
+    m.printMaker();
+}
 int main()
 {
-    Maker m; // m是对象
-    return 0;
+    test();
 }
