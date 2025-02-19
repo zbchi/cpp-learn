@@ -60,6 +60,13 @@ public:
     }
 };
 
+bool isCompareCube(cube &c1, cube &c2)
+{
+    if (c1.geth() == c2.geth() && c1.getl() == c2.getl() && c1.getw() == c2.getw())
+        cout << "=====" << endl;
+    else
+        cout << "!=" << endl;
+}
 int main()
 {
     cube c1, c2;
