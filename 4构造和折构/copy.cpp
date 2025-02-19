@@ -39,6 +39,15 @@ public:
         strcpy(pname, name);
         age = Age;
     }
+
+    // 深度拷贝
+    student(const student &stu)
+    {
+        cout << "自己的拷贝构造函数" << endl;
+        pname = (char *)malloc(strlen(stu.pname) + 1);
+        strcpy(pname, stu.pname);
+        age = stu.age;
+    }
     ~student()
     {
         cout << "xigouhanshu" << endl;
@@ -64,5 +73,6 @@ void test02()
 int main()
 {
     test01();
+    test02();
     return 0;
 }
