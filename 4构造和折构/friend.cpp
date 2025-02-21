@@ -1,9 +1,17 @@
 #include <iostream>
 using namespace std;
 #include <string>
+
+class Building; // 声明类
+class GoodF
+{
+public:
+    void func(Building &bd);
+};
 class Building
 {
-    friend class GoodF; // 声明这个类为Building的友元类
+    //  friend class GoodF; // 声明这个类为Building的友元类
+    friend void GoodF::func(Building &bd);
     friend class GoodF2;
     friend void GoodGay(Building &bd); // 声明这个全局函数为building类的友元函数
 private:
@@ -15,16 +23,6 @@ public:
     {
         keting = "客厅";
         woshi = "卧室";
-    }
-};
-
-class GoodF
-{
-public:
-    void func(Building &bd)
-    {
-        cout << bd.keting << endl;
-        cout << bd.woshi << endl;
     }
 };
 
@@ -57,7 +55,11 @@ public:
         pbu = nullptr;
     }
 };
-
+void GoodF::func(Building &bd)
+{
+    cout << bd.keting << endl;
+    cout << bd.woshi << endl;
+}
 void GoodGay(Building &bd)
 {
     cout << bd.keting << endl;
