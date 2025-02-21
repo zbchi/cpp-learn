@@ -18,6 +18,7 @@ public:
     Maker2()
     {
     }
+    //静态成员函数只能访问静态成员变量
     static void setA(int a)
     {
         a2 = a;
