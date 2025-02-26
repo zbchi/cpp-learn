@@ -29,8 +29,9 @@ void test01()
 {
     const Maker m(1, 18); // 常对象
     // m.age = 100;
-    m.func();
+    //m.func();   不能调用普通函数
     m.printMaker();
+    m.score=100;
 }
 int main()
 {

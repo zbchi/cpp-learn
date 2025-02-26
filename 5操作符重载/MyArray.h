@@ -4,7 +4,7 @@ class MyArray
 public:
     MyArray();
     MyArray(const MyArray &arr);
-    MyArray(int capasity, int val = 0);
+    MyArray(int capacity, int val = 0);
     ~MyArray();
 
     // 头插
