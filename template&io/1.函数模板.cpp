@@ -50,7 +50,6 @@ T func(T a, T b)
     return a + b;
 }
 
-
 void test03()
 {
     int a = 10;
@@ -60,9 +59,53 @@ void test03()
     cout << func<int>(a, b) << endl;
 }
 
+template <class T>
+void mySort(T arr[], int len)
+{
+    for (int i = 0; i < len; i++)
+    {
+        int max = i;
+        for (int j = i + 1; j < len; j++)
+        {
+            if (arr[max] < arr[j])
+            {
+                max = j;
+            }
+        }
+
+        if (max != i)
+        {
+            mySwap(arr[max], arr[i]);
+        }
+    }
+}
+
+template <class T>
+void myPrint(T arr[], int len)
+{
+    for (int i = 0; i < len; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+void test04()
+{
+    char arrchar[] = "hello world";
+    int len = sizeof(arrchar) / sizeof(char);
+    mySort(arrchar, len);
+    myPrint(arrchar, len);
+
+    int arrint[] = {3, 2, 5, 25, 345, 34, 4356, 436, 436, 34};
+    mySort(arrint, len);
+    myPrint(arrint, len);
+}
+
 int main()
 {
     test02();
     test03();
+    test04();
     return 0;
 }
