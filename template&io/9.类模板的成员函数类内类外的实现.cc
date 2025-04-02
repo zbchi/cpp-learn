@@ -2,11 +2,6 @@
 using namespace std;
 #include <string>
 
-#include <iostream>
-using namespace std;
-
-#include <string>
-
 template <class NameType, class AgeType>
 class Maker
 {
