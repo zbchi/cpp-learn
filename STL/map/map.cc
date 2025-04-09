@@ -81,6 +81,59 @@ void test03()
     cout << "size:" << mymap.size() << endl;
 }
 
+// 查找
+void test04()
+{
+    map<int, string> mymap;
+    mymap[1] = "aaa";
+    mymap[2] = "bbb";
+    mymap[3] = "ccc";
+    mymap[4] = "ddd";
+    mymap[5] = "eee";
+
+    map<int, string>::iterator it = mymap.find(1);
+    if (it == mymap.end())
+    {
+        cout << "查找失败" << endl;
+    }
+    else
+    {
+        cout << "find key:" << it->first << "  value:" << it->second << endl;
+    }
+
+    it = mymap.lower_bound(3);
+    if (it == mymap.end())
+    {
+        cout << "查找失败" << endl;
+    }
+    else
+    {
+        cout << "find key:" << it->first << "  value:" << it->second << endl;
+    }
+
+    it = mymap.upper_bound(3);
+    if (it == mymap.end())
+    {
+        cout << "查找失败" << endl;
+    }
+    else
+    {
+        cout << "find key:" << it->first << "  value:" << it->second << endl;
+    }
+
+    cout << "---------------------------" << endl;
+    pair<map<int, string>::iterator, map<int, string>::iterator> ret = mymap.equal_range(3);
+    if (ret.first != mymap.end())
+    {
+        cout << "find key:" << ret.first->first << "  value" << ret.first->second << endl;
+    }
+
+    if (ret.second != mymap.end())
+    {
+        cout << "find key:" << ret.second->first << "  value" << ret.second->second << endl;
+    }
+}
+
 int main()
 {
     test01();
@@ -90,4 +143,7 @@ int main()
 
     cout << endl;
     test03();
+
+    cout << endl;
+    test04();
 }
